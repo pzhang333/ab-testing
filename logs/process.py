@@ -23,8 +23,8 @@ user_logs = defaultdict(list)
 
 SPECIAL_CASE = True
 
-with open("filtered_log.csv") as csvfile:
-    reader = csv.reader(csvfile, dialect="excel-tab")
+with open("myfilteredlog.csv") as csvfile:
+    reader = csv.reader(csvfile)
     for row in reader:
         user_id = row[7]
         user_logs[user_id].append(row)
@@ -95,5 +95,7 @@ for logs in user_logs.values():
     else:
         print("ERROR!")
 
+print(return_a)
+print(return_b)
 print(completion_a)
 print(completion_b)
