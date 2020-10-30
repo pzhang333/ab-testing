@@ -1,14 +1,169 @@
 <!doctype html>
-
-<html>
+<html lang="en">
   <head>
-    <title>INSERT TITLE HERE!</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- TODO: add additional links here! e.g. fonts, icons, more stylesheets, etc. -->
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-  </head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>A/B Testing</title>
+  </head>
   <body>
-    <!-- TODO: put your HTML code here! -->
+    <div class="container mt-5">
+      <h1 class="text-center">CS1300 A/B Testing</h1>
+      <div class="row mt-4">
+        <div class="col-lg d-flex flex-column justify-content-between">
+          <a href="https://nameless-hollows-03686.herokuapp.com/?version=A">
+            <img class="img-fluid" src="images/version_a.png" alt="Link to Site Version A">
+          </a>
+          <p class="text-center">Version A</p>
+        </div>
+        <div class="col-lg d-flex flex-column justify-content-between">
+          <a href="https://nameless-hollows-03686.herokuapp.com/?version=B">
+            <img class="img-fluid" src="images/version_b.png" alt="Link to Site Version B">
+          </a>
+          <p class="text-center align-items-end">Version B</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-lgray pt-3 pb-2">
+      <div class="container">
+        <h2>Overview:</h2>
+        <p>
+          Visual design is a polarizing subject and is often very subject to
+          personal opinion. However, there are times when we need to determine
+          which version of a design we wish to implement. Rather then rely on
+          our personal opinions, which often may be biased, we can use A/B testing
+          and statistical analysis to try to determine if one design is better
+          than another.
+        </p>
+        <p>
+          For this project, we created 2 distinct designs for a web store.
+          Users were tasked with adding 150 dollars worth of plants to the cart.
+          After collecting our data, we plan on using statistics to analyze
+          our results and hopefully reach interesting conclusions.
+        </p>
+      </div>
+    </div>
+    <div class="container pt-3 pb-2">
+      <h2>Hypotheses:</h2>
+      <p>
+        The first step of our statistical analysis is to come up with our
+        Hypotheses. For this project, we are interested in two specific metrics:
+        time to completion and return rate. For each metric, we want to create
+        a set of Hypotheses, a null hypothesis and an alternative hypothesis
+        for each.
+      </p>
+      <p>
+        A null hypothesis takes the position that there is no difference between
+        versions A and B of our website. An alternative hypothesis states that
+        there is a difference. It might seem a bit odd that by default, we assume
+        that there is no difference (since this is the null hypothesis). The
+        reasoning for this has to do with statistics, and is a bit beyond the 
+        scope of the write-up, so I'm including a link
+        <a href="https://support.minitab.com/en-us/minitab/18/help-and-how-to/statistics/basic-statistics/supporting-topics/basics/null-and-alternative-hypotheses/">
+        here 
+        </a>
+        with contains more information.
+      </p>
+      <h3>Time to Completion:</h3>
+      <p><b>Null:</b> There is no significant difference in time to completion between
+      Site A and Site B.</p>
+      <p><b>Alternative:</b> Time to completion will be shorter for Site B
+      because the grid layout makes finding different items easier and therefore
+      should reduce the time needed to complete the task.</p>
+      <h3>Return Rate:</h3>
+      <p><b>Null:</b> There is no significant difference in return rate between Site A
+      and Site B.</p>
+      <p><b>Alternative:</b> There is a difference in return rate between Site A
+      and Site B because Site A highlights quantities and prices in red,
+      which should change how often a user needs to check the cart for a total
+      price.</p>
+      <p>
+        Note that our alternative hypotheses are worded slightly differently
+        because our time to completion test was a 1-sided statistical test while
+        our return rate test was a 2-sided statistical test. <a href="https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-what-are-the-differences-between-one-tailed-and-two-tailed-tests/">Click here</a>
+         to learn more.
+      </p>
+    </div>
+    <div class="bg-lgray pt-3 pb-2">
+      <div class="container">
+        <h2>All About Data:</h2>
+        <p>
+          The process of data collection can be split into 3 distinct parts.
+          First, the actual collection of data. Next, the cleaning of data. And
+          finally, the processing of our cleaned data.
+        </p>
+        <h3>Data Collection:</h3>
+        <p>
+          To collect our data, we added listeners to each sites' buttons.
+          When a button was clicked by a user, a new log line would be generated.
+        </p>
+        <h3>Data Cleaning:</h3>
+        <p>
+          Once we have our raw logs, we need to clean our data. An example of a
+          potential bad log is a user that loaded the site but did not interact
+          with the site. These bad logs should be removed as they can skew our
+          results.
+        </p>
+        <h3>Data Analysis:</h3>
+        <p>
+          The final step is to analyze our clean data, which we do using our
+          custom Python scripts. We can use the numerical outputs from our
+          Python scripts to reach important conclusions.
+        </p>
+      </div>
+    </div>
+    <div class="container pt-3 pb-2">
+      <h3>Results:</h3>
+      <p>
+        Although text is great for communicating ideas, reading can get old
+        fast. Therefore, we chose to display our results in the form of an
+        infographic!
+      </p>
+      <h1>INSERT GRAPHIC HERE!</h1>
+    </div>
+    <div class="bg-lgray pt-3 pb-2">
+      <div class="container">
+        <h3>Takeaways:</h3>
+        <ul>
+          <li>
+            Having a sufficient quantity of data is extremely important.
+            With the relatively limited number of users in my data set, it is
+            hard to get a statistically significant result. I think that if I had
+            more users and thus more data, I might have been able to obtain different
+            results.
+          </li>
+          <li>
+            It will be easier to get statistically significant results
+            using big design changes as opposed to smaller design changes.
+            As a whole, the differences between my Site A and Site B definitely existed,
+            but they were not drastic, which might explain why I did
+            not obtain statistically significant results for either metric.
+          </li>
+          <li>
+            Having a diverse pool of <b>new</b> users is important. Examining the data points
+            individually, I found that most users had similar completion times. I
+            hypothesize that part of this can be attributed to familiarity with the task.
+            Since most students tested multiple websites, it would be very easy to memorize
+            exactly how many plants of type D you need to add to the cart to reach 150 dollars.
+            This skew the results since the users are not "new users". 
+          </li>
+        </ul>
+        <p>
+          Although I am disappointed that I did not obtain statistically
+          significant results for either of my metrics, I still found that this
+          assignment was a great learning opportunity. I think A/B testing
+          and statistical analysis are very important tools, and I will definitely
+          use them in the future to analyze my designs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>
 </html>

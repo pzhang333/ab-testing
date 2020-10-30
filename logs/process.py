@@ -1,6 +1,8 @@
 from collections import defaultdict
 import csv
 
+from abtesting import get_t_score, perform_2_sample_t_test, chi2_value, perform_chi2_homogeneity_test
+
 # 3- site version or checkout page
 # 4- page load time
 # 5- button click time if applicable
@@ -95,7 +97,36 @@ for logs in user_logs.values():
     else:
         print("ERROR!")
 
-print(return_a)
-print(return_b)
-print(completion_a)
-print(completion_b)
+t_score = get_t_score(completion_a, completion_b)
+time_p_score = perform_2_sample_t_test(completion_a, completion_b)
+
+print(f"Site A Average Time: {sum(completion_a)/len(completion_a)}")
+print(f"Site B Average Time: {sum(completion_b)/len(completion_b)}")
+print(f"t-score for completion time: {t_score}")
+print(f"p-score for completion time: {time_p_score}")
+
+print()
+
+observed_grid = [return_a, return_b]
+chi2_res = chi2_value(observed_grid)
+return_p_score = perform_chi2_homogeneity_test(observed_grid)
+
+print(f"Site A Return Results: {return_a}")
+print(f"Site B Return Results: {return_b}")
+print(f"chi_2 for return rate: {chi2_res}")
+print(f"p-score for return rate: {return_p_score}")
+
+print()
+
+res1 = list(map(str, completion_a))
+res2 = list(map(str, completion_b))
+res3 = list(map(str, return_a))
+res4 = list(map(str, return_b))
+
+print(" ".join(res1))
+print()
+print(" ".join(res2))
+print()
+print(" ".join(res3))
+print()
+print(" ".join(res4))
